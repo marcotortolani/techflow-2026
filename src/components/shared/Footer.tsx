@@ -33,7 +33,7 @@ export default function Footer() {
             Términos
           </a> */}
           <a
-            href="#"
+            href="https://www.linkedin.com/company/techflowuy/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-slate-500 hover:text-primary transition-colors flex items-center gap-1"
