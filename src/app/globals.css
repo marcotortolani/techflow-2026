@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-dm-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply text-slate-700 bg-white overflow-x-hidden;
+  }
+
+  * {
+    @apply selection:bg-primary/20 selection:text-slate-900;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-size: 40px 40px;
+  }
+
+  .font-display {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+
+  .font-mono {
+    font-family: var(--font-jetbrains-mono), monospace;
+    -webkit-font-smoothing: auto;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-sm;
+  }
+
+  .blueprint-grid {
+    background-size: 40px 40px;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+  }
+}
