@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
 import {
   Quote,
   Diamond,
@@ -9,7 +10,162 @@ import {
   Layers,
   Code2,
   Gamepad2,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
+
+const testimonials = [
+  {
+    initials: 'CM',
+    quote: [
+      'Pasamos de perder ',
+      'el 15% del stock',
+      ' a solo ',
+      '0.2%',
+      ' en 3 meses.',
+    ],
+    highlights: [1, 3],
+    name: 'Carlos Mendez',
+    role: 'Ops Manager, Retail Partner',
+  },
+  {
+    initials: 'LR',
+    quote: [
+      'Redujimos el tiempo de cierre mensual de ',
+      '5 días',
+      ' a ',
+      '6 horas',
+      '.',
+    ],
+    highlights: [1, 3],
+    name: 'Laura Ríos',
+    role: 'CFO, Distribuidora Norte',
+  },
+  {
+    initials: 'JP',
+    quote: [
+      'Antes teníamos ',
+      '3 sistemas distintos',
+      '. Ahora todo fluye desde ',
+      'un solo lugar',
+      '.',
+    ],
+    highlights: [1, 3],
+    name: 'Javier Peralta',
+    role: 'Gerente General, InduParts SA',
+  },
+]
+
+function TestimonialSlider() {
+  const [index, setIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const isPaused = useRef(false)
+
+  const prev = () =>
+    setIndex((i) => (i - 1 + testimonials.length) % testimonials.length)
+  const next = () => setIndex((i) => (i + 1) % testimonials.length)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isPaused.current) {
+        setIndex((i) => (i + 1) % testimonials.length)
+      }
+    }, 10000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const t = testimonials[index]
+
+  return (
+    <div
+      className="relative w-full p-8 lg:p-12 border-b border-slate-200 bg-slate-50/30"
+      onMouseEnter={() => {
+        isPaused.current = true
+        setIsHovered(true)
+      }}
+      onMouseLeave={() => {
+        isPaused.current = false
+        setIsHovered(false)
+      }}
+    >
+      <Quote size={30} className="text-primary mb-4" />
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.35 }}
+        >
+          <blockquote className="font-display text-2xl md:text-3xl text-slate-900 font-medium leading-tight mb-6">
+            &ldquo;
+            {t.quote.map((part, i) =>
+              t.highlights.includes(i) ? (
+                <span
+                  key={i}
+                  className="text-primary underline decoration-2 underline-offset-4 decoration-primary/30"
+                >
+                  {part}
+                </span>
+              ) : (
+                part
+              ),
+            )}
+            &rdquo;
+          </blockquote>
+          <div className="flex items-center gap-3">
+            <div className="size-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-display font-bold text-sm shrink-0">
+              {t.initials}
+            </div>
+            <div>
+              <p className="font-display font-bold text-slate-900 text-sm">
+                {t.name}
+              </p>
+              <p className="font-mono text-xs text-slate-400 uppercase tracking-wide">
+                {t.role}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Dot indicators */}
+      <div className="flex items-center gap-2 mt-6">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`size-1.5 rounded-full transition-all duration-200 ${
+              i === index ? 'bg-primary w-4' : 'bg-slate-300 hover:bg-slate-400'
+            }`}
+            aria-label={`Testimonial ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Arrow buttons */}
+      {isHovered && (
+        <>
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 md:-translate-y-1/2 size-8 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-primary hover:border-primary/30 transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft size={16} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 size-8 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:text-primary hover:border-primary/30 transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={16} />
+          </button>
+        </>
+      )}
+    </div>
+  )
+}
 
 const placeholderLogos = [Diamond, Rocket, Network, Layers, Code2, Gamepad2]
 
@@ -120,33 +276,7 @@ export default function ValidationSection() {
           {/* Right: Social proof */}
           <div className="flex flex-col">
             {/* Testimonial */}
-            <div className="p-8 lg:p-12 border-b border-slate-200 bg-slate-50/30">
-              <Quote size={36} className="text-primary mb-4" />
-              <blockquote className="font-display text-2xl md:text-3xl text-slate-900 font-medium leading-tight mb-6">
-                &ldquo;Pasamos de perder{' '}
-                <span className="text-primary underline decoration-2 underline-offset-4 decoration-primary/30">
-                  el 15% del stock
-                </span>{' '}
-                a solo{' '}
-                <span className="text-primary underline decoration-2 underline-offset-4 decoration-primary/30">
-                  0.2%
-                </span>{' '}
-                en 3 meses.&rdquo;
-              </blockquote>
-              <div className="flex items-center gap-3">
-                <div className="size-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-display font-bold text-sm shrink-0">
-                  CM
-                </div>
-                <div>
-                  <p className="font-display font-bold text-slate-900 text-sm">
-                    Carlos Mendez
-                  </p>
-                  <p className="font-mono text-xs text-slate-400 uppercase tracking-wide">
-                    Ops Manager, Retail Partner
-                  </p>
-                </div>
-              </div>
-            </div>
+            <TestimonialSlider />
 
             {/* Logo grid */}
             <div className="flex-1 bg-white p-8 lg:p-12">
