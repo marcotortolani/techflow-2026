@@ -1,42 +1,42 @@
-"use client";
+'use client'
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Mountain, Menu, X, ArrowRight } from "lucide-react";
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
+import { Mountain, Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
-  { label: "Problema", href: "#problema" },
-  { label: "Solución", href: "#solucion" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Equipo", href: "#equipo" },
-];
+  { label: 'Problema', href: '#problema' },
+  { label: 'Solución', href: '#solucion' },
+  { label: 'Proceso', href: '#proceso' },
+  { label: 'Equipo', href: '#equipo' },
+]
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
+    const handler = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+    setMobileOpen(false)
+    const el = document.querySelector(href)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <>
       <motion.header
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"
-            : "bg-white/80 backdrop-blur-sm border-b border-slate-200/60"
+            ? 'bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm'
+            : 'bg-white/80 backdrop-blur-sm border-b border-slate-200/60'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -44,8 +44,8 @@ export default function Navbar() {
           <a
             href="#hero"
             onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#hero");
+              e.preventDefault()
+              handleNavClick('#hero')
             }}
             className="flex items-center gap-2.5 group cursor-pointer"
           >
@@ -64,8 +64,8 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
+                  e.preventDefault()
+                  handleNavClick(link.href)
                 }}
                 className="text-sm font-medium text-slate-600 hover:text-primary transition-colors duration-200"
               >
@@ -79,12 +79,12 @@ export default function Navbar() {
             <a
               href="#contacto"
               onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#contacto");
+                e.preventDefault()
+                handleNavClick('#contacto')
               }}
               className="hidden sm:flex items-center gap-1.5 bg-primary text-white font-display font-bold text-sm px-5 h-9 rounded-md hover:bg-primary-dark transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-px"
             >
-              <span>Agendar Diagnóstico</span>
+              <span>Conversemos</span>
               <ArrowRight size={14} />
             </a>
 
@@ -116,8 +116,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
+                    e.preventDefault()
+                    handleNavClick(link.href)
                   }}
                   className="py-3 px-2 text-base font-medium text-slate-700 hover:text-primary border-b border-slate-100 last:border-0 transition-colors"
                 >
@@ -127,8 +127,8 @@ export default function Navbar() {
               <a
                 href="#contacto"
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick("#contacto");
+                  e.preventDefault()
+                  handleNavClick('#contacto')
                 }}
                 className="mt-3 flex items-center justify-center gap-2 bg-primary text-white font-display font-bold text-sm px-5 py-3 rounded-md"
               >
@@ -140,5 +140,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </>
-  );
+  )
 }

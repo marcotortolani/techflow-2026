@@ -1,60 +1,60 @@
-"use client";
+'use client'
 
-import { motion } from "motion/react";
-import { Package, Wallet, BarChart3 } from "lucide-react";
+import { motion } from 'motion/react'
+import { Package, Wallet, BarChart3 } from 'lucide-react'
 
 const productCards = [
   {
     icon: Package,
-    name: "EqualWMS",
-    desc: "Sistema de gestión de depósitos diseñado para empresas ecommerce con volumen operativo.",
+    name: 'EqualWMS',
+    desc: 'Sistema de gestión de depósitos diseñado para empresas ecommerce con volumen operativo.',
     features: [
-      "Trazabilidad de stock en tiempo real",
-      "Gestión de ubicaciones",
-      "Recepción y picking guiado",
-      "Lectura de códigos de barras",
-      "Control operativo del depósito",
+      'Trazabilidad de stock en tiempo real',
+      'Gestión de ubicaciones',
+      'Recepción y picking guiado',
+      'Lectura de códigos de barras',
+      'Control operativo del depósito',
     ],
-    tag: "Integrable con ERP y Ecommerce",
+    tag: 'Integrable con ERP y Ecommerce',
   },
   {
     icon: Wallet,
-    name: "EqualRP",
-    desc: "Sistema de gestión integral (ERP) para centralizar la operación administrativa y financiera.",
+    name: 'EqualRP',
+    desc: 'Sistema de gestión integral (ERP) para centralizar la operación administrativa y financiera.',
     features: [
-      "Compras y ventas",
-      "Inventario centralizado",
-      "Tesorería y contabilidad",
-      "Facturación electrónica",
+      'Compras y ventas',
+      'Inventario centralizado',
+      'Tesorería y contabilidad',
+      'Facturación electrónica',
     ],
-    tag: "Integración nativa con WMS",
+    tag: 'Integración nativa con WMS',
   },
   {
     icon: BarChart3,
-    name: "Diagnóstico y ordenamiento",
-    desc: "Para empresas que necesitan ordenar procesos antes de implementar tecnología. Analizamos cómo funciona hoy la operación y diseñamos la estructura necesaria para sostener el crecimiento de forma escalable.",
+    name: 'Diagnóstico y ordenamiento',
+    desc: 'Para empresas que necesitan ordenar procesos antes de implementar tecnología. Analizamos cómo funciona hoy la operación y diseñamos la estructura necesaria para sostener el crecimiento de forma escalable.',
     features: [],
-    tag: "Estructura para el crecimiento",
+    tag: 'Estructura para el crecimiento',
   },
-];
+]
 
 const methodologySteps = [
   {
     num: 1,
-    title: "Análisis y Diagnóstico",
-    desc: "Ordenamiento de procesos inicial y detección de cuellos de botella.",
+    title: 'Análisis y Diagnóstico',
+    desc: 'Ordenamiento de procesos inicial y detección de cuellos de botella.',
   },
   {
     num: 2,
-    title: "Implementación de Sistemas",
-    desc: "Despliegue configurado de EqualWMS y EqualRP según la operación específica.",
+    title: 'Implementación de Sistemas',
+    desc: 'Despliegue configurado de EqualWMS y EqualRP según la operación específica.',
   },
   {
     num: 3,
-    title: "Crecimiento Escalable",
-    desc: "Operación profesionalizada y lista para aumentar el volumen sin perder control.",
+    title: 'Crecimiento Escalable',
+    desc: 'Operación profesionalizada y lista para aumentar el volumen sin perder control.',
   },
-];
+]
 
 export default function SolutionSection() {
   return (
@@ -97,7 +97,7 @@ export default function SolutionSection() {
         {/* Product cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
           {productCards.map((card, i) => {
-            const Icon = card.icon;
+            const Icon = card.icon
             return (
               <motion.div
                 key={card.name}
@@ -135,7 +135,7 @@ export default function SolutionSection() {
                   </p>
                 </div>
               </motion.div>
-            );
+            )
           })}
         </div>
 
@@ -180,8 +180,10 @@ export default function SolutionSection() {
           <a
             href="#contacto"
             onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" });
+              e.preventDefault()
+              document
+                .querySelector('#contacto')
+                ?.scrollIntoView({ behavior: 'smooth' })
             }}
             className="inline-flex items-center justify-center min-w-[240px] h-14 px-8 bg-primary text-white font-display font-bold text-base rounded-xl hover:bg-primary-dark hover:scale-[1.02] transition-all duration-200 shadow-md"
           >
@@ -193,5 +195,5 @@ export default function SolutionSection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

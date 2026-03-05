@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { motion } from "motion/react";
+import { motion } from 'motion/react'
 import {
   AlertTriangle,
   Package,
@@ -11,68 +11,68 @@ import {
   GitBranch,
   Ban,
   BarChart3,
-} from "lucide-react";
+} from 'lucide-react'
 
 const problemNodes = [
   {
     icon: Package,
-    title: "Stock Mismatch",
-    tag: "Falla de Sincronía",
-    desc: "Desajuste de inventario real vs digital. Ventas de productos sin existencias.",
+    title: 'Stock Mismatch',
+    tag: 'Falla de Sincronía',
+    desc: 'Desajuste de inventario real vs digital. Ventas de productos sin existencias.',
     isLast: false,
   },
   {
     icon: UserX,
-    title: "Key-Person Dependency",
-    tag: "Cuello de Botella",
-    desc: "Si una persona clave falta, el proceso se detiene. El conocimiento no es sistémico.",
+    title: 'Key-Person Dependency',
+    tag: 'Cuello de Botella',
+    desc: 'Si una persona clave falta, el proceso se detiene. El conocimiento no es sistémico.',
     isLast: false,
   },
   {
     icon: AlertCircle,
-    title: "Preparation Errors",
-    tag: "Pérdida de Margen",
-    desc: "Errores en picking y packing. Logística inversa devorando la rentabilidad.",
+    title: 'Preparation Errors',
+    tag: 'Pérdida de Margen',
+    desc: 'Errores en picking y packing. Logística inversa devorando la rentabilidad.',
     isLast: false,
   },
   {
     icon: Receipt,
-    title: "Billing Friction",
-    tag: "Falla de Cobro",
-    desc: "Fricción administrativa. Facturas que no coinciden con los despachos realizados.",
+    title: 'Billing Friction',
+    tag: 'Falla de Cobro',
+    desc: 'Fricción administrativa. Facturas que no coinciden con los despachos realizados.',
     isLast: false,
   },
   {
     icon: Grid2X2,
-    title: "Spreadsheet Chaos",
-    tag: "Punto Crítico",
-    desc: "Fragmentación total. La verdad de la empresa vive en 20 Excels distintos.",
+    title: 'Spreadsheet Chaos',
+    tag: 'Punto Crítico',
+    desc: 'Fragmentación total. La verdad de la empresa vive en 20 Excels distintos.',
     isLast: true,
   },
-];
+]
 
 const consequenceCards = [
   {
     icon: GitBranch,
-    title: "Operación Fragmentada",
-    desc: "Los sistemas no se hablan entre sí. La información es un teléfono roto entre departamentos.",
+    title: 'Operación Fragmentada',
+    desc: 'Los sistemas no se hablan entre sí. La información es un teléfono roto entre departamentos.',
   },
   {
     icon: Ban,
-    title: "Crecimiento Bloqueado",
-    desc: "Escalar es imposible cuando cada nuevo pedido aumenta exponencialmente la carga operativa.",
+    title: 'Crecimiento Bloqueado',
+    desc: 'Escalar es imposible cuando cada nuevo pedido aumenta exponencialmente la carga operativa.',
   },
   {
     icon: BarChart3,
-    title: "Pérdida de Control",
-    desc: "Incertidumbre total en la toma de decisiones. ¿Estamos ganando o perdiendo dinero hoy?",
+    title: 'Pérdida de Control',
+    desc: 'Incertidumbre total en la toma de decisiones. ¿Estamos ganando o perdiendo dinero hoy?',
   },
-];
+]
 
 export default function ProblemSection() {
   return (
-    <section id="problema" className="bg-white py-20 lg:py-28">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="problema" className="py-20 lg:py-28">
+      <div className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-transparent via-white/80 to-transparent ">
         {/* Header */}
         <div className="flex flex-col gap-5 mb-16 text-center md:text-left">
           <motion.div
@@ -108,7 +108,7 @@ export default function ProblemSection() {
             className="font-body text-xl md:text-2xl font-light text-slate-600 max-w-2xl leading-relaxed"
           >
             Cuando una empresa crece, el problema no es vender más. El problema
-            es que{" "}
+            es que{' '}
             <span className="text-warning-red font-semibold underline decoration-dashed underline-offset-4">
               la operación empieza a romperse.
             </span>
@@ -123,7 +123,7 @@ export default function ProblemSection() {
 
           <div className="flex flex-col gap-0">
             {problemNodes.map((node, i) => {
-              const Icon = node.icon;
+              const Icon = node.icon
               return (
                 <motion.div
                   key={node.title}
@@ -137,8 +137,8 @@ export default function ProblemSection() {
                     <div
                       className={`z-10 flex items-center justify-center size-10 rounded-md ${
                         node.isLast
-                          ? "bg-warning-red text-white shadow-[0_0_15px_rgba(239,68,68,0.35)]"
-                          : "bg-warning-red/10 border border-warning-red text-warning-red"
+                          ? 'bg-warning-red text-white shadow-[0_0_15px_rgba(239,68,68,0.35)]'
+                          : 'bg-warning-red/10 border border-warning-red text-warning-red'
                       }`}
                     >
                       <Icon size={18} />
@@ -154,8 +154,8 @@ export default function ProblemSection() {
                       <span
                         className={`text-[10px] px-2 py-0.5 rounded border font-black uppercase font-mono ${
                           node.isLast
-                            ? "bg-warning-red text-white border-warning-red italic"
-                            : "border-warning-red text-warning-red"
+                            ? 'bg-warning-red text-white border-warning-red italic'
+                            : 'border-warning-red text-warning-red'
                         }`}
                       >
                         {node.tag}
@@ -166,7 +166,7 @@ export default function ProblemSection() {
                     </p>
                   </div>
                 </motion.div>
-              );
+              )
             })}
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function ProblemSection() {
         {/* Consequence cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
           {consequenceCards.map((card, i) => {
-            const Icon = card.icon;
+            const Icon = card.icon
             return (
               <motion.div
                 key={card.title}
@@ -194,10 +194,10 @@ export default function ProblemSection() {
                   {card.desc}
                 </p>
               </motion.div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
+  )
 }

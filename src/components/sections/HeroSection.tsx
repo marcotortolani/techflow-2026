@@ -16,7 +16,7 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden"
     >
       {/* Fixed grid background */}
-      <div className="fixed inset-0 bg-grid-pattern bg-grid opacity-40 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-grid-pattern bg-grid  opacity-40 pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl w-full mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

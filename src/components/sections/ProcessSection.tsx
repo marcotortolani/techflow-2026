@@ -1,42 +1,45 @@
-"use client";
+'use client'
 
-import { motion } from "motion/react";
-import { LayoutTemplate, Clock } from "lucide-react";
+import { motion } from 'motion/react'
+import { LayoutTemplate, Clock } from 'lucide-react'
 
 const phases = [
   {
-    num: "01",
-    phase: "Phase_Discovery",
-    title: "Onboarding",
-    desc: "Auditoría profunda de los cuellos de botella actuales. Entendemos tu dolor antes de prescribir.",
+    num: '01',
+    phase: 'Phase_Discovery',
+    title: 'Onboarding',
+    desc: 'Auditoría profunda de los cuellos de botella actuales. Entendemos tu dolor antes de prescribir.',
     active: true,
   },
   {
-    num: "02",
-    phase: "Phase_Architecture",
-    title: "Diseño de Flujo",
-    desc: "Mapeo de lógica personalizada. Creamos el diagrama exacto de cómo debe moverse tu operación.",
+    num: '02',
+    phase: 'Phase_Architecture',
+    title: 'Diseño de Flujo',
+    desc: 'Mapeo de lógica personalizada. Creamos el diagrama exacto de cómo debe moverse tu operación.',
     active: false,
   },
   {
-    num: "03",
-    phase: "Phase_Deploy",
-    title: "Implementación",
-    desc: "Despliegue del Stack TechFlow (WMS + RP). Conexión de integraciones y carga de datos.",
+    num: '03',
+    phase: 'Phase_Deploy',
+    title: 'Implementación',
+    desc: 'Despliegue del Stack TechFlow (WMS + RP). Conexión de integraciones y carga de datos.',
     active: false,
   },
   {
-    num: "04",
-    phase: "Phase_Handover",
-    title: "Capacitación",
-    desc: "Entrenamiento intensivo al equipo y entrega oficial de las llaves de tu nueva infraestructura.",
+    num: '04',
+    phase: 'Phase_Handover',
+    title: 'Capacitación',
+    desc: 'Entrenamiento intensivo al equipo y entrega oficial de las llaves de tu nueva infraestructura.',
     active: false,
   },
-];
+]
 
 export default function ProcessSection() {
   return (
-    <section id="proceso" className="bg-bg-light py-20 lg:py-28 relative overflow-hidden">
+    <section
+      id="proceso"
+      className="bg-bg-light/50 py-20 lg:py-28 relative overflow-hidden"
+    >
       {/* Blueprint grid overlay */}
       <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40 blueprint-grid pointer-events-none z-0" />
 
@@ -86,7 +89,7 @@ export default function ProcessSection() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
             style={{ originX: 0 }}
             className="hidden lg:block absolute top-6 left-0 w-3/4 h-0.5 bg-gradient-to-r from-primary/30 via-primary to-primary z-0"
           />
@@ -109,13 +112,15 @@ export default function ProcessSection() {
 
                 {/* Node circle */}
                 <div
-                  className={`relative flex items-center justify-center size-12 rounded-full border-4 border-white shadow-md z-10 group-hover:scale-110 transition-transform duration-300 ${
+                  className={`relative flex items-center justify-center size-12 rounded-full border-4 border-white shadow-md z-10 group-hover:scale-110 transition-all ease-in-out duration-300 ${
                     phase.active
-                      ? "bg-slate-900 text-primary"
-                      : "bg-white text-slate-900 border-2 border-slate-200 group-hover:border-primary"
+                      ? 'bg-primary text-slate-200 group-hover:border-primary'
+                      : 'bg-white text-slate-900 border-2 border-slate-200 group-hover:border-primary'
                   }`}
                 >
-                  <span className="font-mono font-bold text-sm">{phase.num}</span>
+                  <span className="font-mono font-bold text-sm">
+                    {phase.num}
+                  </span>
                 </div>
 
                 {/* Content */}
@@ -123,8 +128,8 @@ export default function ProcessSection() {
                   <span
                     className={`inline-block px-2 py-0.5 mb-2.5 text-[10px] font-mono font-bold rounded uppercase tracking-wider ${
                       phase.active
-                        ? "text-primary bg-primary/10"
-                        : "text-slate-500 bg-slate-100"
+                        ? 'text-primary bg-primary/10'
+                        : 'text-slate-500 bg-slate-100'
                     }`}
                   >
                     {phase.phase}
@@ -165,5 +170,5 @@ export default function ProcessSection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

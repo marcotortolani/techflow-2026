@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { motion } from "motion/react";
-import { BadgeCheck, CalendarDays, Mail, MessageCircle } from "lucide-react";
+import { motion } from 'motion/react'
+import { BadgeCheck, CalendarDays, Mail, MessageCircle } from 'lucide-react'
 
 export default function CTASection() {
   return (
@@ -43,8 +43,8 @@ export default function CTASection() {
         </motion.p>
 
         {/* Primary CTA */}
-        <motion.a
-          href="mailto:hola@techflow.com"
+        {/* <motion.a
+          href="mailto:paula@techflow.uy"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -54,7 +54,7 @@ export default function CTASection() {
         >
           <CalendarDays size={20} />
           Agendar conversación
-        </motion.a>
+        </motion.a> */}
 
         {/* Divider */}
         <motion.div
@@ -66,7 +66,7 @@ export default function CTASection() {
         />
 
         <p className="font-body text-slate-400 text-sm font-medium uppercase tracking-widest mb-8">
-          O contáctanos directamente
+          Conversemos
         </p>
 
         {/* Contact cards */}
@@ -78,7 +78,7 @@ export default function CTASection() {
           className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-xl mb-14"
         >
           <a
-            href="mailto:hola@techflow.com"
+            href="mailto:paula@techflow.uy"
             className="group flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50/50 p-6 hover:border-primary/30 hover:bg-white hover:shadow-sm transition-all duration-200"
           >
             <div className="flex size-11 items-center justify-center rounded-lg bg-white text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-200 shrink-0">
@@ -89,13 +89,13 @@ export default function CTASection() {
                 Email
               </span>
               <span className="font-display text-slate-900 text-base font-semibold group-hover:text-primary transition-colors duration-200">
-                hola@techflow.com
+                paula@techflow.uy
               </span>
             </div>
           </a>
 
           <a
-            href="https://wa.me/541112345678"
+            href="https://wa.me/59892873224"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50/50 p-6 hover:border-primary/30 hover:bg-white hover:shadow-sm transition-all duration-200"
@@ -108,7 +108,7 @@ export default function CTASection() {
                 WhatsApp
               </span>
               <span className="font-display text-slate-900 text-base font-semibold group-hover:text-primary transition-colors duration-200">
-                +54 11 1234-5678
+                +598 98 873-224
               </span>
             </div>
           </a>
@@ -140,5 +140,5 @@ export default function CTASection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

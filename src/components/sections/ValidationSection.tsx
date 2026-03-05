@@ -1,9 +1,17 @@
-"use client";
+'use client'
 
-import { motion } from "motion/react";
-import { Quote, Diamond, Rocket, Network, Layers, Code2, Gamepad2 } from "lucide-react";
+import { motion } from 'motion/react'
+import {
+  Quote,
+  Diamond,
+  Rocket,
+  Network,
+  Layers,
+  Code2,
+  Gamepad2,
+} from 'lucide-react'
 
-const placeholderLogos = [Diamond, Rocket, Network, Layers, Code2, Gamepad2];
+const placeholderLogos = [Diamond, Rocket, Network, Layers, Code2, Gamepad2]
 
 function FounderCard({
   initials,
@@ -12,11 +20,11 @@ function FounderCard({
   jobTitle,
   delay,
 }: {
-  initials: string;
-  role: string;
-  name: string;
-  jobTitle: string;
-  delay: number;
+  initials: string
+  role: string
+  name: string
+  jobTitle: string
+  delay: number
 }) {
   return (
     <motion.div
@@ -38,12 +46,14 @@ function FounderCard({
           <div className="font-mono text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">
             Role: {role}
           </div>
-          <div className="font-display font-bold text-slate-900 text-sm">{name}</div>
+          <div className="font-display font-bold text-slate-900 text-sm">
+            {name}
+          </div>
           <div className="font-body text-xs text-slate-500">{jobTitle}</div>
         </div>
       </div>
     </motion.div>
-  );
+  )
 }
 
 export default function ValidationSection() {
@@ -59,7 +69,7 @@ export default function ValidationSection() {
           className="flex items-center gap-4 mb-8"
         >
           <span className="font-mono text-primary text-xs font-medium tracking-wider bg-primary/10 px-2 py-1 rounded">
-            {"// 05. VALIDATION_&_TEAM"}
+            {'VALIDATION & TEAM'}
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
         </motion.div>
@@ -82,8 +92,8 @@ export default function ValidationSection() {
                 Architects of Flow
               </h3>
               <p className="font-body text-slate-600 text-base mb-8 max-w-md leading-relaxed">
-                No consultores. Somos builders que combinan experiencia operativa
-                con código escalable.
+                No consultores. Somos builders que combinan experiencia
+                operativa con código escalable.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
@@ -113,14 +123,14 @@ export default function ValidationSection() {
             <div className="p-8 lg:p-12 border-b border-slate-200 bg-slate-50/30">
               <Quote size={36} className="text-primary mb-4" />
               <blockquote className="font-display text-2xl md:text-3xl text-slate-900 font-medium leading-tight mb-6">
-                &ldquo;Pasamos de perder{" "}
+                &ldquo;Pasamos de perder{' '}
                 <span className="text-primary underline decoration-2 underline-offset-4 decoration-primary/30">
                   el 15% del stock
-                </span>{" "}
-                a solo{" "}
+                </span>{' '}
+                a solo{' '}
                 <span className="text-primary underline decoration-2 underline-offset-4 decoration-primary/30">
                   0.2%
-                </span>{" "}
+                </span>{' '}
                 en 3 meses.&rdquo;
               </blockquote>
               <div className="flex items-center gap-3">
@@ -142,7 +152,7 @@ export default function ValidationSection() {
             <div className="flex-1 bg-white p-8 lg:p-12">
               <div className="flex items-center justify-between mb-5">
                 <h4 className="font-mono text-xs text-slate-400 uppercase tracking-widest">
-                  {"// TRUSTED_BY_50+_SMEs"}
+                  {'// TRUSTED_BY_50+_SMEs'}
                 </h4>
                 <div className="h-px bg-slate-200 w-16" />
               </div>
@@ -165,5 +175,5 @@ export default function ValidationSection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
