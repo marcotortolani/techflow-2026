@@ -58,7 +58,7 @@ function FounderCard({
 
 export default function ValidationSection() {
   return (
-    <section id="equipo" className="bg-white py-20 lg:py-28">
+    <section id="equipo" className="bg-white/0 py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Section header */}
         <motion.div
@@ -80,7 +80,7 @@ export default function ValidationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-1 lg:grid-cols-2 border border-slate-200 bg-white shadow-sm rounded-lg overflow-hidden"
+          className="grid grid-cols-1 lg:grid-cols-2 border border-slate-200 bg-white shadow-md shadow-black/5 rounded-lg overflow-hidden"
         >
           {/* Left: Founders */}
           <div className="relative group p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">

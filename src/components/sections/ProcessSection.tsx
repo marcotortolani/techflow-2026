@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useSpring, useMotionValueEvent } from 'motion/react'
 import { LayoutTemplate, Clock } from 'lucide-react'
 
 const phases = [
@@ -9,34 +10,47 @@ const phases = [
     phase: 'Phase_Discovery',
     title: 'Onboarding',
     desc: 'Auditoría profunda de los cuellos de botella actuales. Entendemos tu dolor antes de prescribir.',
-    active: true,
   },
   {
     num: '02',
     phase: 'Phase_Architecture',
     title: 'Diseño de Flujo',
     desc: 'Mapeo de lógica personalizada. Creamos el diagrama exacto de cómo debe moverse tu operación.',
-    active: false,
   },
   {
     num: '03',
     phase: 'Phase_Deploy',
     title: 'Implementación',
     desc: 'Despliegue del Stack TechFlow (WMS + RP). Conexión de integraciones y carga de datos.',
-    active: false,
   },
   {
     num: '04',
     phase: 'Phase_Handover',
     title: 'Capacitación',
     desc: 'Entrenamiento intensivo al equipo y entrega oficial de las llaves de tu nueva infraestructura.',
-    active: false,
   },
 ]
 
 export default function ProcessSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [activeStep, setActiveStep] = useState(-1)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 80%', 'end 60%'],
+  })
+  const springProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 20 })
+
+  useMotionValueEvent(springProgress, 'change', (v) => {
+    const thresholds = [0, 0.25, 0.5, 0.75]
+    let highest = -1
+    thresholds.forEach((t, i) => { if (v >= t) highest = i })
+    setActiveStep(highest)
+  })
+
   return (
     <section
+      ref={sectionRef}
       id="proceso"
       className="bg-bg-light/50 py-20 lg:py-28 relative overflow-hidden"
     >
@@ -86,12 +100,8 @@ export default function ProcessSection() {
           {/* Desktop connecting line */}
           <div className="hidden lg:block absolute top-6 left-0 right-0 h-0.5 bg-slate-200 z-0" />
           <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
-            style={{ originX: 0 }}
-            className="hidden lg:block absolute top-6 left-0 w-3/4 h-0.5 bg-gradient-to-r from-primary/30 via-primary to-primary z-0"
+            style={{ scaleX: springProgress, originX: 0 }}
+            className="hidden lg:block absolute top-6 left-0 w-full h-0.5 bg-gradient-to-r from-primary/30 via-primary to-primary z-0"
           />
 
           {/* Steps grid */}
@@ -113,7 +123,7 @@ export default function ProcessSection() {
                 {/* Node circle */}
                 <div
                   className={`relative flex items-center justify-center size-12 rounded-full border-4 border-white shadow-md z-10 group-hover:scale-110 transition-all ease-in-out duration-300 ${
-                    phase.active
+                    i <= activeStep
                       ? 'bg-primary text-slate-200 group-hover:border-primary'
                       : 'bg-white text-slate-900 border-2 border-slate-200 group-hover:border-primary'
                   }`}
@@ -126,8 +136,8 @@ export default function ProcessSection() {
                 {/* Content */}
                 <div className="mt-5 lg:mt-7 ml-20 lg:ml-0 lg:text-center">
                   <span
-                    className={`inline-block px-2 py-0.5 mb-2.5 text-[10px] font-mono font-bold rounded uppercase tracking-wider ${
-                      phase.active
+                    className={`inline-block px-2 py-0.5 mb-2.5 text-[10px] font-mono font-bold rounded uppercase tracking-wider transition-colors duration-300 ${
+                      i <= activeStep
                         ? 'text-primary bg-primary/10'
                         : 'text-slate-500 bg-slate-100'
                     }`}

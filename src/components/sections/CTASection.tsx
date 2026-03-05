@@ -1,11 +1,14 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { BadgeCheck, CalendarDays, Mail, MessageCircle } from 'lucide-react'
+import { BadgeCheck, Mail, MessageCircle } from 'lucide-react'
 
 export default function CTASection() {
   return (
-    <section id="contacto" className="bg-white py-20 lg:py-28">
+    <section
+      id="contacto"
+      className="bg-gradient-to-b from-bg-light/0 via-bg-light/80 to-bg-light bg-white py-20 lg:py-28"
+    >
       <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
         {/* Badge */}
         <motion.div
@@ -115,7 +118,7 @@ export default function CTASection() {
         </motion.div>
 
         {/* Office image placeholder */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -123,7 +126,6 @@ export default function CTASection() {
           className="w-full max-w-4xl"
         >
           <div className="relative aspect-[21/9] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-xl">
-            {/* Placeholder gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-200" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
@@ -131,13 +133,24 @@ export default function CTASection() {
                   TechFlow HQ
                 </p>
                 <p className="font-mono text-xs text-slate-300 uppercase tracking-widest">
-                  Buenos Aires, Argentina
+                  Uruguay & Argentina
                 </p>
               </div>
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
           </div>
-        </motion.div>
+        </motion.div> */}
+        {/* <div className="w-full max-w-4xl px-6 pb-20">
+          <div className="relative aspect-[21/9] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-2xl">
+            <img
+              alt="Modern clean office workspace"
+              className="w-full h-full object-cover opacity-90 grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+              data-alt="Modern minimalist office space with plants and natural light"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Z4vN0h64Z5z5hC4CVMu9J_jFbijqeWXsNuGaVL1qD2F1IJe1ipme0lJDeIlJeKlVBSd4cYS8gTeoUeG-9tAc914MJWVVG9-2bfsVpAW6nFOyYwEyVsO3tGoI6nr3ChlypE9gYFrpBVJMurWVLnmVNzkejy0lCPDOp4to_j388yGERLaUKacUp9gxlw-dgPZvw9fVY1i6rWpu2dCbwg8f3nyJ58hgQ6lB3Ql7ouH-08l2zBmQS-rSzXAWjrzSxQFFbgTeuUvSvDc"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
+          </div>
+        </div> */}
       </div>
     </section>
   )
