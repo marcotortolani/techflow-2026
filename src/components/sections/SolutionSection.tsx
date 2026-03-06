@@ -7,7 +7,7 @@ const productCards = [
   {
     icon: Package,
     name: 'EqualWMS',
-    desc: 'Sistema de gestión de depósitos diseñado para empresas ecommerce con volumen operativo.',
+    desc: 'El Sistema Operativo del depósito. Organiza la operación logística de empresas que venden con volumen.',
     features: [
       'Trazabilidad de stock en tiempo real',
       'Gestión de ubicaciones',
@@ -20,7 +20,7 @@ const productCards = [
   {
     icon: Wallet,
     name: 'EqualRP',
-    desc: 'Sistema de gestión integral (ERP) para centralizar la operación administrativa y financiera.',
+    desc: 'La columna vertebral del negocio. Centraliza la operación administrativa y financiera de la empresa.',
     features: [
       'Compras y ventas',
       'Inventario centralizado',
@@ -31,7 +31,7 @@ const productCards = [
   },
   {
     icon: BarChart3,
-    name: 'Diagnóstico y ordenamiento',
+    name: 'Diagnóstico Operativo',
     desc: 'Para empresas que necesitan ordenar procesos antes de implementar tecnología. Analizamos cómo funciona hoy la operación y diseñamos la estructura necesaria para sostener el crecimiento de forma escalable.',
     features: [],
     tag: 'Estructura para el crecimiento',
@@ -69,7 +69,7 @@ export default function SolutionSection() {
             transition={{ duration: 0.5 }}
             className="font-mono text-primary font-bold tracking-widest uppercase text-xs"
           >
-            Nuestra Solución
+            Arquitectura Operativa
           </motion.span>
 
           <motion.h1
@@ -79,7 +79,7 @@ export default function SolutionSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight text-slate-900"
           >
-            Diseñamos la estructura que sostiene el crecimiento
+            Diseñamos el Sistema Operativo de tu empresa
           </motion.h1>
 
           <motion.p
@@ -89,8 +89,9 @@ export default function SolutionSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="font-body text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed"
           >
-            TechFlow combina desarrollo tecnológico propio con rediseño de
-            procesos para profesionalizar la operación de pymes en crecimiento.
+            TechFlow combina arquitectura de procesos, tecnología propia e
+            integración de todas las operaciones para profesionalizar las pymes
+            en crecimiento.
           </motion.p>
         </div>
 
@@ -145,9 +146,9 @@ export default function SolutionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-primary/5 rounded-xl p-8 md:p-12 border border-primary/10 mb-14"
+          className="bg-primary/5 rounded-xl p-8 md:p-12 border border-primary/10 mb-14 h-60"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {methodologySteps.map((step, i) => (
               <div key={step.num} className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
@@ -166,7 +167,7 @@ export default function SolutionSection() {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </motion.div>
 
         {/* CTA */}
@@ -190,7 +191,7 @@ export default function SolutionSection() {
             Saber más sobre nuestra solución
           </a>
           <p className="mt-3 text-sm text-slate-500 font-body">
-            Descubre cómo podemos transformar tu logística hoy.
+            Descubre cómo podemos transformar tu operación hoy.
           </p>
         </motion.div>
       </div>

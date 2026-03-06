@@ -200,7 +200,7 @@ function FounderCard({
         {/* Label overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-3 bg-white/90 backdrop-blur-sm border-t border-slate-200">
           <div className="font-mono text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">
-            Role: {role}
+            Rol: {role}
           </div>
           <div className="font-display font-bold text-slate-900 text-sm">
             {name}
@@ -225,7 +225,7 @@ export default function ValidationSection() {
           className="flex items-center gap-4 mb-8"
         >
           <span className="font-mono text-primary text-xs font-medium tracking-wider bg-primary/10 px-2 py-1 rounded">
-            {'VALIDATION & TEAM'}
+            VALIDATION & TEAM
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
         </motion.div>
@@ -245,27 +245,27 @@ export default function ValidationSection() {
 
             <div className="relative z-10">
               <h3 className="font-display text-3xl font-bold text-slate-900 mb-2">
-                Architects of Flow
+                Architectos de TechFlow
               </h3>
               <p className="font-body text-slate-600 text-base mb-8 max-w-md leading-relaxed">
-                No consultores. Somos builders que combinan experiencia
-                operativa con código escalable.
+                No somos consultores. Somos constructores que combinan
+                experiencia operativa con desarrollo tecnológico.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
                 <FounderCard
                   initials="PS"
-                  role="The_Architect"
+                  role="Arquitectura Operativa"
                   name="Paula Sánchez"
-                  jobTitle="Head of Operations"
+                  jobTitle="COO"
                   delay={0.2}
                 />
                 <div className="sm:mt-8">
                   <FounderCard
                     initials="MM"
-                    role="The_Builder"
+                    role="Arquitectura Tecnológica"
                     name="Mauricio Mondo"
-                    jobTitle="Head of Technology"
+                    jobTitle="CTO"
                     delay={0.3}
                   />
                 </div>

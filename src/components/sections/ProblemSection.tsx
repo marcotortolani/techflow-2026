@@ -6,7 +6,7 @@ import {
   Package,
   UserX,
   AlertCircle,
-  Receipt,
+  Truck,
   Grid2X2,
   GitBranch,
   Ban,
@@ -16,35 +16,35 @@ import {
 const problemNodes = [
   {
     icon: Package,
-    title: 'Stock Mismatch',
+    title: 'Desajuste de Stock',
     tag: 'Falla de Sincronía',
     desc: 'Desajuste de inventario real vs digital. Ventas de productos sin existencias.',
     isLast: false,
   },
   {
     icon: UserX,
-    title: 'Key-Person Dependency',
+    title: 'Dependencia de Personas Clave',
     tag: 'Cuello de Botella',
     desc: 'Si una persona clave falta, el proceso se detiene. El conocimiento no es sistémico.',
     isLast: false,
   },
   {
     icon: AlertCircle,
-    title: 'Preparation Errors',
+    title: 'Errores de Preparación de Pedidos',
     tag: 'Pérdida de Margen',
     desc: 'Errores en picking y packing. Logística inversa devorando la rentabilidad.',
     isLast: false,
   },
   {
-    icon: Receipt,
-    title: 'Billing Friction',
-    tag: 'Falla de Cobro',
-    desc: 'Fricción administrativa. Facturas que no coinciden con los despachos realizados.',
+    icon: Truck,
+    title: 'Retrasos de Despacho',
+    tag: 'Falla de Envío',
+    desc: 'El volumen crece, la operación se vuelve lenta. Los envíos se atrasan y la experiencia del cliente se deteriora.',
     isLast: false,
   },
   {
     icon: Grid2X2,
-    title: 'Spreadsheet Chaos',
+    title: 'Caos en Planillas',
     tag: 'Punto Crítico',
     desc: 'Fragmentación total. La verdad de la empresa vive en 20 Excels distintos.',
     isLast: true,
@@ -95,9 +95,9 @@ export default function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl font-black leading-tight tracking-tighter uppercase italic text-slate-900"
+            className="font-display text-5xl md:text-7xl font-black leading-tight tracking-tighter italic text-slate-900"
           >
-            EL PROBLEMA
+            El problema
           </motion.h1>
 
           <motion.p

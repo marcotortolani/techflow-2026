@@ -1,13 +1,20 @@
-"use client";
+'use client'
 
-import { motion } from "motion/react";
-import { ShoppingCart, Package, Truck, CalendarDays, Layers, ChevronDown } from "lucide-react";
+import { motion } from 'motion/react'
+import {
+  ShoppingCart,
+  Package,
+  Truck,
+  CalendarDays,
+  Layers,
+  ChevronDown,
+} from 'lucide-react'
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
-});
+})
 
 export default function HeroSection() {
   return (
@@ -23,7 +30,10 @@ export default function HeroSection() {
           {/* Left: content */}
           <div className="flex flex-col gap-7 text-center lg:text-left">
             {/* Status badge */}
-            <motion.div {...fadeUp(0.1)} className="flex justify-center lg:justify-start">
+            <motion.div
+              {...fadeUp(0.1)}
+              className="flex justify-center lg:justify-start"
+            >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full">
                 <span className="relative flex size-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -40,7 +50,7 @@ export default function HeroSection() {
               {...fadeUp(0.2)}
               className="font-display font-bold text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight text-slate-900"
             >
-              Infraestructura operativa para{" "}
+              Infraestructura operativa para{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600">
                 pymes en crecimiento.
               </span>
@@ -63,8 +73,10 @@ export default function HeroSection() {
               <a
                 href="#contacto"
                 onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" });
+                  e.preventDefault()
+                  document
+                    .querySelector('#contacto')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }}
                 className="flex items-center justify-center gap-2 bg-primary text-white font-display font-bold text-base px-8 py-4 rounded-md hover:bg-primary-dark transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
               >
@@ -74,13 +86,15 @@ export default function HeroSection() {
               <a
                 href="#solucion"
                 onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#solucion")?.scrollIntoView({ behavior: "smooth" });
+                  e.preventDefault()
+                  document
+                    .querySelector('#solucion')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }}
                 className="flex items-center justify-center gap-2 bg-white border border-slate-300 text-slate-700 font-display font-bold text-base px-8 py-4 rounded-md hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
               >
                 <Layers size={18} />
-                <span>Ver la arquitectura</span>
+                <span>Conocer cómo funciona</span>
               </a>
             </motion.div>
 
@@ -93,12 +107,12 @@ export default function HeroSection() {
                 {[0, 1, 2].map((i) => (
                   <div
                     key={i}
-                    className="size-8 rounded-full border-2 border-white overflow-hidden bg-gradient-to-br from-slate-300 to-slate-400"
+                    className="size-6 rounded-full border-2 border-white overflow-hidden bg-gradient-to-br from-slate-300 to-slate-400"
                   />
                 ))}
               </div>
               <span className="text-sm font-medium text-slate-500">
-                +120 empresas ordenadas
+                EqualWMS · EqualRP · Integraciones ecommerce
               </span>
             </motion.div>
           </div>
@@ -149,8 +163,8 @@ export default function HeroSection() {
                   strokeOpacity="0.6"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-                  style={{ animation: "flow 1.2s linear infinite" }}
+                  transition={{ duration: 1.5, delay: 0.8, ease: 'easeOut' }}
+                  style={{ animation: 'flow 1.2s linear infinite' }}
                 />
                 <motion.path
                   d="M250,150 C250,220 380,220 380,300"
@@ -161,8 +175,8 @@ export default function HeroSection() {
                   strokeOpacity="0.6"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, delay: 1.0, ease: "easeOut" }}
-                  style={{ animation: "flow 1.2s linear infinite 0.6s" }}
+                  transition={{ duration: 1.5, delay: 1.0, ease: 'easeOut' }}
+                  style={{ animation: 'flow 1.2s linear infinite 0.6s' }}
                 />
               </svg>
 
@@ -176,7 +190,9 @@ export default function HeroSection() {
                     <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider">
                       Node_01
                     </span>
-                    <span className="font-display font-bold text-slate-900">Ventas</span>
+                    <span className="font-display font-bold text-slate-900">
+                      Ventas
+                    </span>
                   </div>
                   <div className="ml-auto size-2 rounded-full bg-primary animate-pulse" />
                 </div>
@@ -192,7 +208,9 @@ export default function HeroSection() {
                     <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider">
                       Node_02
                     </span>
-                    <span className="font-display font-bold text-slate-900">Stock</span>
+                    <span className="font-display font-bold text-slate-900">
+                      Stock
+                    </span>
                   </div>
                 </div>
               </div>
@@ -207,7 +225,9 @@ export default function HeroSection() {
                     <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider">
                       Node_03
                     </span>
-                    <span className="font-display font-bold text-slate-900">Despacho</span>
+                    <span className="font-display font-bold text-slate-900">
+                      Despacho
+                    </span>
                   </div>
                 </div>
               </div>
@@ -215,13 +235,13 @@ export default function HeroSection() {
               {/* Floating data particles */}
               <div
                 className="absolute top-[185px] left-[120px] bg-slate-100 px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 border border-slate-200 animate-bounce z-20"
-                style={{ animationDuration: "3s" }}
+                style={{ animationDuration: '3s' }}
               >
                 {`{"id": "ord_882"}`}
               </div>
               <div
                 className="absolute top-[220px] right-[120px] bg-slate-100 px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 border border-slate-200 animate-bounce z-20"
-                style={{ animationDuration: "4s", animationDelay: "1s" }}
+                style={{ animationDuration: '4s', animationDelay: '1s' }}
               >
                 status: 200 OK
               </div>
@@ -237,7 +257,9 @@ export default function HeroSection() {
         transition={{ delay: 1.5, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce cursor-pointer opacity-40 hover:opacity-80 transition-opacity"
         onClick={() =>
-          document.querySelector("#problema")?.scrollIntoView({ behavior: "smooth" })
+          document
+            .querySelector('#problema')
+            ?.scrollIntoView({ behavior: 'smooth' })
         }
       >
         <span className="font-mono text-[10px] uppercase text-slate-400 tracking-widest">
@@ -246,5 +268,5 @@ export default function HeroSection() {
         <ChevronDown size={18} className="text-slate-400" />
       </motion.div>
     </section>
-  );
+  )
 }

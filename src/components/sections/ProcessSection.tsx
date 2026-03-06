@@ -21,7 +21,7 @@ const phases = [
     num: '03',
     phase: 'Phase_Deploy',
     title: 'Implementación',
-    desc: 'Despliegue del Stack TechFlow (WMS + RP). Conexión de integraciones y carga de datos.',
+    desc: 'Despliegue del Stack TechFlow (WMS + ERP). Conexión de integraciones y carga de datos.',
   },
   {
     num: '04',
@@ -39,12 +39,17 @@ export default function ProcessSection() {
     target: sectionRef,
     offset: ['start 80%', 'end 60%'],
   })
-  const springProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 20 })
+  const springProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 20,
+  })
 
   useMotionValueEvent(springProgress, 'change', (v) => {
     const thresholds = [0, 0.25, 0.5, 0.75]
     let highest = -1
-    thresholds.forEach((t, i) => { if (v >= t) highest = i })
+    thresholds.forEach((t, i) => {
+      if (v >= t) highest = i
+    })
     setActiveStep(highest)
   })
 
@@ -173,7 +178,7 @@ export default function ProcessSection() {
                 Estimated_Timeline
               </span>
               <span className="font-display text-sm font-bold text-slate-900">
-                4 – 8 Semanas Promedio
+                4 – 6 Semanas Promedio
               </span>
             </div>
           </div>
